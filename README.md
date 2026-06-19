@@ -78,19 +78,16 @@ workflows as local files, also run `biomcp skill install ~/.claude --force`.
 
 ### Codex
 
-Register the BioMCP MCP server in Codex's `~/.codex/config.toml`:
-
-```toml
-[mcp_servers.biomcp]
-command = "biomcp"
-args = ["serve"]
-```
-
-Then install the guided investigation workflows into the Codex agent directory:
+Register the BioMCP MCP server with the Codex CLI in one step:
 
 ```bash
-biomcp skill install ~/.codex --force
+codex mcp add biomcp -- biomcp serve
 ```
+
+This requires the `biomcp` binary on your PATH first (see
+[Binary install](#binary-install) or [PyPI tool install](#pypi-tool-install)).
+To add the guided investigation workflows as local files, also run
+`biomcp skill install ~/.codex --force`.
 
 ### MCP clients
 
