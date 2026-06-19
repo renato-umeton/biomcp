@@ -61,6 +61,37 @@ Install guided investigation workflows into your agent directory:
 biomcp skill install ~/.claude --force
 ```
 
+### Claude Code
+
+BioMCP ships a Claude Code plugin that registers the BioMCP MCP server in one
+step. From inside Claude Code:
+
+```text
+/plugin marketplace add genomoncology/biomcp
+/plugin install biomcp@biomcp
+```
+
+The plugin wires the `biomcp` MCP server (`biomcp serve`), so install the
+`biomcp` binary on your PATH first (see [Binary install](#binary-install) or
+[PyPI tool install](#pypi-tool-install)). To add the guided investigation
+workflows as local files, also run `biomcp skill install ~/.claude --force`.
+
+### Codex
+
+Register the BioMCP MCP server in Codex's `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.biomcp]
+command = "biomcp"
+args = ["serve"]
+```
+
+Then install the guided investigation workflows into the Codex agent directory:
+
+```bash
+biomcp skill install ~/.codex --force
+```
+
 ### MCP clients
 
 ```json
